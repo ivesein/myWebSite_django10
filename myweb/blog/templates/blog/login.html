@@ -1,0 +1,52 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+{% block container %}
+{% block home_slider %}
+    <section id="page-breadcrumb">
+        <div class="vertical-center sun">
+             <div class="container">
+                <div class="row">
+                    <div class="action">
+                        <div class="col-sm-12">
+                            <h1 class="title">用户登录</h1>
+                            <p>请填写用户名和密码</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </section>
+    <section id="home-slider">
+        <div class="container">
+            <div class="row">
+                <div class="main-slider">
+                    <img src="{% static 'blog/images/home/slider/hill.png' %}" class="slider-hill" alt="slider image">
+                    <img src="{% static 'blog/images/home/slider/house.png' %}" class="slider-house" alt="slider image">
+                    <img src="{% static 'blog/images/home/slider/sun.png' %}" class="slider-sun" alt="slider image">
+                    <img src="{% static 'blog/images/home/slider/birds1.png' %}" class="slider-birds1" alt="slider image">
+                    <img src="{% static 'blog/images/home/slider/birds2.png' %}" class="slider-birds2" alt="slider image">
+                    <div class="slide-text">
+                    <form class="form-horizontal" method="post" action="">
+		            {% csrf_token %} 
+                    	{{ form }}
+                    	{% if messages %}
+                    	{% for message in messages %}
+                        <li><strong>{{ message|escape }}</strong></li>
+                        {% endfor %} 
+                    	{% endif %}
+                    	<div class="form-group">
+						  <div class="col-sm-offset-8 col-sm-8">
+						    <button type="submit" class="btn btn-primary">登录</button>
+						  </div>
+						</div>
+                    </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>
+    </section>
+    <!--/#home-slider-->
+{% endblock home_slider %}
+{% endblock container %}
